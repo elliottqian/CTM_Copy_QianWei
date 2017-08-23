@@ -1,0 +1,5 @@
+rootProject.name = 'CTM_Copy_QianWei'
+include 'mainpage_playlist'
+include 'mainpage_log'
+include 'mainpage_playlist'
+

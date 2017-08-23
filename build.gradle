@@ -1,0 +1,43 @@
+version '1.0-SNAPSHOT'
+
+/**
+ * 子模块的全局配置
+ */
+subprojects {
+    apply plugin: 'java'
+
+    /**
+     * 选择编译和运行版本
+     */
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+
+    /**
+     * 仓库配置
+     * 最先本地
+     * 其次网易服务器, 阿里云服务器, maven库
+     */
+    repositories {
+        mavenLocal()
+        maven {
+            credentials{
+                username 'developer'
+                password 'netease'
+            }
+            url 'http://mvn.hz.netease.com/artifactory/repo'
+        }
+        maven {url "http://maven.aliyun.com/nexus/content/groups/public/"}
+        mavenCentral()
+    }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+        compile group: 'org.apache.hadoop', name: 'hadoop-hdfs', version: '2.5.2'
+        compile group: 'org.apache.hadoop', name: 'hadoop-client', version: '2.5.2'
+        compile group: 'org.apache.hadoop', name: 'hadoop-common', version: '2.5.2'
+        compile files('C:\\Users\\qianwei\\Documents\\我的POPO\\lib\\json-simple-1.1.jar')
+    }
+}
+
+
+
